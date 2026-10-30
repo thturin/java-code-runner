@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Read(//home/tatiana-turin/projects/**)",
-      "Read(//home/tatiana-turin/projects/edu-platform/**)"
-    ]
-  }
-}
