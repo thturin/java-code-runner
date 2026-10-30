@@ -1,0 +1,39 @@
+Grade the whole class:
+cd ~/projects/local-java-runner
+node src/index.js \
+  --template assignments/U1C3-Programming-Challenge/template \
+  --roster assignments/U1C3-Programming-Challenge/roster.xlsx \
+  --registry registry.example.xlsx \
+  --out assignments/U1C3-Programming-Challenge/results.csv
+
+Grade one section only (Odd or Even) - only that section's rows in
+results.csv are replaced, the other section's rows are kept:
+
+node src/index.js \
+  --template assignments/U1C3-Programming-Challenge/template \
+  --roster assignments/U1C3-Programming-Challenge/roster.xlsx \
+  --registry registry.example.xlsx \
+  --section Odd \
+  --out assignments/U1C3-Programming-Challenge/results.csv
+
+- Change Odd to Even for the even section.
+
+Grade one student (and update only their row in results.csv):
+
+node src/index.js \
+  --template assignments/U1C3-Programming-Challenge/template \
+  --roster assignments/U1C3-Programming-Challenge/roster.xlsx \
+  --registry registry.example.xlsx \
+  --student "Safwan Islam" --section Odd \
+  --out assignments/U1C3-Programming-Challenge/results.csv
+
+
+- Use the student's name, Student Id or GitHub username after --student.
+- --section is only needed if that name is in both Odd and Even.
+- Leave off the --out line to see the result in the terminal without changing results.csv.
+
+Rerun a student's tests by hand after grading:
+cd tmp/U1C2-Programming-Challenge/doe-jane-odd
+docker run --rm --network none -v "$PWD":/workspace -w /workspace \
+  java-grading-sandbox:latest \
+  sh -c "mvn clean test; s=\$?; chown -R $(id -u):$(id -g) /workspace; exit \$s"

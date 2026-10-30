@@ -1,0 +1,29 @@
+Make the Jupiter import files from results.csv
+==============================================
+
+Run from the project folder:
+cd ~/projects/local-java-runner
+
+Even class:
+node scripts/fill-jupiter-template.js \
+  --template Even-Template.csv \
+  --results assignments/U1C3-Programming-Challenge/results.csv \
+  --out assignments/U1C3-Programming-Challenge/Jupiter-Even.csv
+
+Odd class:
+node scripts/fill-jupiter-template.js \
+  --template Odd-Template.csv \
+  --results assignments/U1C3-Programming-Challenge/results.csv \
+  --out assignments/U1C3-Programming-Challenge/Jupiter-Odd.csv
+
+
+- --template  the blank file exported from Jupiter (read only, never changed)
+- --results   the grader's results.csv
+- --out       the new file to import into Jupiter (replaced if it already exists)
+
+- Students are matched by the Student Id in "Last, First (ID)", then by
+  first + last name. Students not in results.csv get 0, "No submission".
+- Score = percentage from results.csv. Comment = Notes from results.csv.
+- Set Possible to 100 in Jupiter, since the scores are percentages.
+- For another assignment, change U1C3-Programming-Challenge in the paths.
+- After regrading anyone, run these again so the Jupiter files update.

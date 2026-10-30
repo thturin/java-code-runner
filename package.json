@@ -1,0 +1,17 @@
+{
+  "name": "local-java-runner",
+  "version": "1.0.0",
+  "description": "Local batch grader for Java assignments submitted as GitHub repos. Verifies repo ownership, runs the official JUnit tests against each student's Solution.java inside an isolated Docker container, and exports a CSV of scores.",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "grade": "node src/index.js",
+    "build-sandbox": "docker build -t java-grading-sandbox:latest ./docker/java-sandbox"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "dockerode": "^4.0.2",
+    "xlsx": "^0.18.5"
+  }
+}

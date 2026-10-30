@@ -1,0 +1,21 @@
+node_modules/
+tmp/
+*.log
+
+# LibreOffice lock files
+.~lock.*#
+
+# Assignments contain student data - only track the example assignment.
+assignments/*
+!assignments/example-assignment/
+
+# Jupiter grade templates
+Even-Template.csv
+Odd-Template.csv
+
+# Real rosters/registries and results likely contain student data - don't
+# commit them by accident.
+registry.xlsx
+registry.example.xlsx
+assignments/**/roster.xlsx
+assignments/**/results.csv
